@@ -119,6 +119,67 @@
     .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
     .nav-toggle span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
 
+    /* ── Mobile Nav Fix ─────────────────────────────────────── */
+@media (max-width: 768px) {
+  .navbar__links {
+    display: none;
+    position: fixed;
+    inset: 0;                          /* covers full screen */
+    background: #030E21;               /* solid — no transparency */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    z-index: 999;                      /* above everything */
+  }
+
+  .navbar__links.is-open {
+    display: flex;
+  }
+
+  .navbar__links a {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.80);
+    padding: 0.5rem 1rem;
+    transition: color 0.2s;
+  }
+
+  .navbar__links a:hover {
+    color: #F8E7A1;
+  }
+
+  /* Close button inside menu */
+  .navbar__links::after {
+    content: '✕';
+    position: absolute;
+    top: 1.25rem;
+    right: 1.5rem;
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.60);
+    cursor: pointer;
+    pointer-events: none;   /* JS handles close via toggle btn */
+  }
+
+  /* Hamburger becomes X when open */
+  .nav-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .nav-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  .nav-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Keep toggle button on top of the open menu */
+  .nav-toggle {
+    position: relative;
+    z-index: 1000;
+  }
+   }
+    
     /* ── HERO ── */
     .hero { position: relative; overflow: hidden; padding-block: clamp(3rem, 8vw, 5rem); }
     .blob--hero-blue   { width: 600px; height: 600px; background: #2F45BC; top: -100px; right: -150px; }
@@ -706,18 +767,20 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    const navToggle = document.getElementById('navToggle');
-    const navLinks  = document.getElementById('navLinks');
     navToggle.addEventListener('click', () => {
-      const open = navLinks.classList.toggle('is-open');
-      navToggle.setAttribute('aria-expanded', open);
-    });
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('is-open');
-        navToggle.setAttribute('aria-expanded', 'false');
-      });
-    });
+  const open = navLinks.classList.toggle('is-open');
+  navToggle.setAttribute('aria-expanded', open);
+  // Prevent body scroll when menu is open
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('is-open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = ''; // restore scroll
+  });
+});
    
   </script>
 
