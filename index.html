@@ -2,123 +2,687 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Devansh Mishra | Web Developer Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Devansh Mishra – WordPress Developer & Technical Support Specialist</title>
+
+  <!-- SEO Meta -->
+  <meta name="description" content="Devansh Mishra is a WordPress Developer & Technical Support Specialist with 3+ years of experience helping international clients with custom themes, WooCommerce, performance optimization, and site maintenance." />
+  <meta name="keywords" content="WordPress Developer, Technical Support, WooCommerce, Elementor, PHP, MySQL, Lucknow, India, Freelancer" />
+  <meta name="author" content="Devansh Mishra" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://devanshmishra.github.io/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Devansh Mishra – WordPress Developer" />
+  <meta property="og:description" content="WordPress Developer & Technical Support Specialist with 3+ years of experience supporting international clients." />
+  <meta property="og:image" content="devansh-professional.jpg" />
+  <meta property="og:url" content="https://devanshmishra.github.io/" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Devansh Mishra – WordPress Developer" />
+  <meta name="twitter:description" content="WordPress Developer & Technical Support Specialist" />
+  <meta name="twitter:image" content="devansh-professional.jpg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:         #030E21;
+      --bg-footer:  #091427;
+      --bg-card:    rgba(9, 20, 39, 0.80);
+      --bg-panel:   rgba(9, 20, 39, 0.60);
+      --text:       #ffffff;
+      --muted:      #868490;
+      --accent:     #F8E7A1;
+      --border:     rgba(255, 255, 255, 0.12);
+      --radius:     6px;
+      --font:       'Poppins', sans-serif;
+      --max-w:      1200px;
+      --px:         clamp(1.25rem, 5vw, 2rem);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font); line-height: 1.6; overflow-x: hidden; }
+    img  { display: block; max-width: 100%; }
+    a    { color: inherit; text-decoration: none; }
+    ul, ol { list-style: none; }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+      filter: blur(70px);
+      opacity: 0.55;
+    }
+
+    .container {
+      max-width: var(--max-w);
+      margin-inline: auto;
+      padding-inline: var(--px);
+      position: relative;
+      z-index: 1;
+    }
+
+    .arrow-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--accent);
+      font-size: 1rem;
+      font-weight: 400;
+      transition: gap 0.2s;
+    }
+    .arrow-link:hover { gap: 0.9rem; }
+
+    .section-title {
+      font-size: clamp(2rem, 4.5vw, 3.875rem);
+      font-weight: 600;
+      line-height: 1.15;
+    }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      position: sticky; top: 0; z-index: 100;
+      padding-block: 1.1rem;
+      background: rgba(3,14,33,0.90);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .navbar__inner { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+    .navbar__logo {
+      font-size: 1.75rem; font-weight: 700; color: #E5E5E5;
+      letter-spacing: 0.06em; display: flex; align-items: center;
+    }
+    .navbar__logo-dot {
+      width: 8px; height: 8px; background: var(--accent);
+      border-radius: 50%; display: inline-block; margin-left: 3px;
+    }
+    .navbar__links { display: flex; gap: 2.5rem; }
+    .navbar__links a { font-size: 1rem; font-weight: 500; color: rgba(255,255,255,0.70); transition: color 0.2s; }
+    .navbar__links a:hover { color: #fff; }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-toggle span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+
+    /* ── HERO ── */
+    .hero { position: relative; overflow: hidden; padding-block: clamp(3rem, 8vw, 5rem); }
+    .blob--hero-blue   { width: 600px; height: 600px; background: #2F45BC; top: -100px; right: -150px; }
+    .blob--hero-purple { width: 500px; height: 500px; background: #4F349F; top: 200px;  left: -180px; }
+    .hero__inner { display: flex; align-items: flex-start; gap: clamp(1.5rem, 4vw, 3rem); }
+    .hero__content { flex: 1 1 340px; display: flex; flex-direction: column; gap: 1rem; padding-top: 2rem; }
+    .hero__role { font-size: clamp(1rem, 2.2vw, 1.5rem); font-weight: 600; color: var(--muted); }
+    .hero__name { font-size: clamp(2.4rem, 6vw, 5rem); font-weight: 600; line-height: 1.05; }
+    .hero__underline { width: clamp(100px, 15vw, 183px); height: 8px; background: var(--accent); border-radius: 2px; }
+    .hero__bio { font-size: clamp(0.88rem, 1.3vw, 1rem); color: var(--muted); line-height: 1.9; max-width: 420px; }
+    .hero__badges { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.4rem; }
+    .badge {
+      background: rgba(248,231,161,0.09); border: 1px solid rgba(248,231,161,0.22);
+      color: var(--accent); font-size: 0.72rem; font-weight: 500;
+      padding: 0.22rem 0.7rem; border-radius: 999px;
+    }
+    .hero__photo { flex: 0 0 auto; width: clamp(200px, 30vw, 420px); border-radius: var(--radius); overflow: hidden; margin: 0; }
+    .hero__photo img { width: 100%; height: auto; object-fit: cover; object-position: top center; border-radius: var(--radius); display: block; }
+    .hero__stats { flex: 0 0 auto; display: flex; flex-direction: column; align-items: flex-end; gap: 2.5rem; padding-top: 1rem; }
+    .stat { text-align: right; }
+    .stat__label { color: var(--muted); font-size: clamp(0.8rem, 1.1vw, 1.05rem); font-weight: 500; line-height: 1.4; }
+    .stat__value { font-size: clamp(2.2rem, 4.5vw, 4rem); font-weight: 600; line-height: 1; }
+
+    /* ── BRAND STRIP ── */
+    .brand-strip {
+      background: rgba(9,20,39,0.60); backdrop-filter: blur(4px);
+      padding-block: 1.35rem;
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    }
+    .brand-strip__inner { display: flex; align-items: center; justify-content: center; gap: clamp(1.5rem, 4vw, 4rem); flex-wrap: wrap; }
+    .brand-item { color: rgba(255,255,255,0.38); font-size: clamp(0.72rem, 1.1vw, 0.85rem); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
+    .brand-item:hover { color: rgba(255,255,255,0.72); }
+
+    /* ── SERVICES ── */
+    .services { position: relative; overflow: hidden; padding-block: clamp(3rem, 7vw, 5.5rem); }
+    .blob--services { width: 700px; height: 700px; background: #8B3D4C; top: 80px; right: -250px; opacity: 0.35; }
+    .services__inner { display: flex; gap: clamp(2rem, 6vw, 5rem); align-items: flex-start; flex-wrap: wrap; }
+    .services__intro { flex: 1 1 280px; display: flex; flex-direction: column; gap: 1.5rem; padding-top: 1rem; }
+    .services__desc { color: var(--muted); font-size: clamp(0.88rem, 1.2vw, 1rem); line-height: 1.9; max-width: 380px; }
+    .services__list { flex: 1 1 400px; display: flex; flex-direction: column; gap: 0.9rem; }
+    .service-card {
+      display: flex; align-items: center; gap: 1.25rem;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); backdrop-filter: blur(4.5px);
+      padding: 1.1rem 1.4rem; transition: border-color 0.25s, transform 0.25s;
+    }
+    .service-card:hover { border-color: rgba(255,255,255,0.28); transform: translateY(-3px); }
+    .service-card__icon {
+      font-size: 1.5rem; flex-shrink: 0; width: 48px; height: 48px;
+      background: rgba(248,231,161,0.07); border-radius: var(--radius);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .service-card__info { flex: 1; }
+    .service-card__title { font-size: clamp(0.95rem, 1.6vw, 1.15rem); font-weight: 600; margin-bottom: 0.2rem; }
+    .service-card__desc { color: var(--muted); font-size: clamp(0.78rem, 1vw, 0.875rem); }
+
+    /* ── SKILLS ── */
+    .skills { padding-block: clamp(3rem, 7vw, 5.5rem); background: var(--bg-panel); }
+    .skills__inner { display: flex; flex-direction: column; gap: 2.5rem; }
+    .skills__header { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .skills__subtitle { color: var(--muted); font-size: 1rem; max-width: 500px; }
+    .skills__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.1rem; }
+    .skill-group { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.1rem 1.4rem; }
+    .skill-group__title { font-size: 0.75rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .skill-tag { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.09); color: rgba(255,255,255,0.78); font-size: 0.75rem; font-weight: 500; padding: 0.18rem 0.55rem; border-radius: 4px; }
+
+    /* ── EXPERIENCE ── */
+    .experience { position: relative; overflow: hidden; padding-block: clamp(3rem, 7vw, 5.5rem); }
+    .blob--exp { width: 500px; height: 500px; background: #2F45BC; bottom: -100px; left: -150px; opacity: 0.30; }
+    .experience__inner { display: flex; flex-direction: column; gap: 2.5rem; }
+    .timeline { display: flex; flex-direction: column; position: relative; }
+    .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--border); }
+    .timeline-item { display: flex; gap: 2rem; padding-left: 2rem; padding-bottom: 2.5rem; position: relative; }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-item::before { content: ''; position: absolute; left: -5px; top: 6px; width: 12px; height: 12px; background: var(--accent); border-radius: 50%; border: 2px solid var(--bg); }
+    .timeline-item__meta { flex: 0 0 200px; display: flex; flex-direction: column; gap: 0.3rem; }
+    .timeline-item__period { color: var(--accent); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.05em; }
+    .timeline-item__company { color: var(--muted); font-size: 0.83rem; font-weight: 500; }
+    .timeline-item__location { color: var(--muted); font-size: 0.76rem; }
+    .timeline-item__body { flex: 1; }
+    .timeline-item__role { font-size: clamp(1rem, 1.7vw, 1.15rem); font-weight: 600; margin-bottom: 0.75rem; }
+    .timeline-item__points { display: flex; flex-direction: column; gap: 0.35rem; }
+    .timeline-item__points li { color: var(--muted); font-size: clamp(0.8rem, 1vw, 0.9rem); line-height: 1.7; padding-left: 1rem; position: relative; }
+    .timeline-item__points li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.72rem; top: 3px; }
+
+    /* ── EDUCATION ── */
+    .education { padding-block: clamp(3rem, 7vw, 5.5rem); background: var(--bg-panel); }
+    .education__inner { display: flex; flex-direction: column; gap: 2rem; }
+    .edu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.1rem; }
+    .edu-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.4rem; display: flex; flex-direction: column; gap: 0.65rem; transition: border-color 0.25s, transform 0.25s; }
+    .edu-card:hover { border-color: rgba(255,255,255,0.25); transform: translateY(-3px); }
+    .edu-card__year { color: var(--accent); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; }
+    .edu-card__degree { font-size: 1rem; font-weight: 600; }
+    .edu-card__school { color: var(--muted); font-size: 0.86rem; line-height: 1.5; }
+    .edu-card__project { color: var(--muted); font-size: 0.8rem; line-height: 1.6; border-top: 1px solid var(--border); padding-top: 0.65rem; }
+
+    /* ── TESTIMONIAL ── */
+    .testimonial { position: relative; overflow: hidden; padding-block: clamp(3rem, 7vw, 5.5rem); }
+    .blob--testimonial { width: 426px; height: 719px; background: #2F45BC; left: -61px; top: 0; border-radius: 40% 60% 55% 45% / 50% 45% 55% 50%; opacity: 0.70; }
+    .testimonial__inner { display: flex; align-items: center; gap: clamp(2rem, 5vw, 5rem); flex-wrap: wrap; }
+    .testimonial__photo { flex: 0 0 auto; width: clamp(220px, 28vw, 360px); height: clamp(280px, 36vw, 480px); border-radius: var(--radius); overflow: hidden; margin: 0; background: #1a2a4a; }
+    .testimonial__photo img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+    .testimonial__body { flex: 1 1 320px; display: flex; flex-direction: column; gap: 1.25rem; }
+    .testimonial__quote-mark { font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 500; line-height: 1; }
+    .testimonial__quote { display: flex; flex-direction: column; gap: 1.5rem; }
+    .testimonial__quote p { font-size: clamp(1rem, 2vw, 1.65rem); font-weight: 600; line-height: 1.45; font-style: normal; }
+    .testimonial__author-name { display: block; font-size: 1rem; font-weight: 600; font-style: normal; }
+    .testimonial__author-role { display: block; font-size: 0.875rem; color: var(--muted); font-style: normal; }
+    .testimonial__nav { display: flex; gap: 0.75rem; margin-top: 0.5rem; }
+    .testimonial__btn { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; font-size: 1rem; cursor: pointer; background: none; transition: background 0.2s, color 0.2s; }
+    .testimonial__btn--next { border: 2px solid var(--accent); color: var(--accent); }
+    .testimonial__btn--prev { border: 2px solid var(--muted); color: var(--muted); }
+    .testimonial__btn--next:hover { background: var(--accent); color: var(--bg); }
+    .testimonial__btn--prev:hover { background: var(--muted); color: var(--bg); }
+
+    /* ── CTA ── */
+    .cta { padding-block: clamp(3rem, 7vw, 5.5rem); background: var(--bg-panel); }
+    .cta__inner { display: flex; align-items: center; gap: clamp(2rem, 5vw, 4rem); flex-wrap: wrap; }
+    .cta__text { flex: 1 1 300px; display: flex; flex-direction: column; gap: 2rem; }
+    .cta__heading { font-size: clamp(1.8rem, 4vw, 3.5rem); font-weight: 600; line-height: 1.2; }
+    .cta__actions { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--accent); color: var(--bg); font-size: 1rem; font-weight: 600; padding: 0.75rem 1.75rem; border-radius: var(--radius); transition: opacity 0.2s, transform 0.2s; font-family: var(--font); }
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-2px); }
+    .btn-outline { display: inline-flex; align-items: center; gap: 0.5rem; border: 1.5px solid var(--accent); color: var(--accent); font-size: 1rem; font-weight: 500; padding: 0.75rem 1.75rem; border-radius: var(--radius); transition: background 0.2s, color 0.2s; font-family: var(--font); }
+    .btn-outline:hover { background: var(--accent); color: var(--bg); }
+    .cta__figure { flex: 0 0 auto; width: clamp(220px, 32vw, 440px); border-radius: var(--radius); overflow: hidden; margin: 0; }
+    .cta__figure img { width: 100%; height: auto; object-fit: cover; display: block; }
+
+    /* ── FOOTER ── */
+    .site-footer { background: var(--bg-footer); padding-block: 2.5rem; border-top: 1px solid var(--border); }
+    .site-footer__inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+    .site-footer__brand { font-size: 1.5rem; font-weight: 700; color: #E5E5E5; letter-spacing: 0.06em; display: flex; align-items: center; }
+    .social-links { display: flex; align-items: center; gap: 0.75rem; }
+    .social-link { display: flex; align-items: center; justify-content: center; width: 42px; height: 42px; border: 1.5px solid rgba(255,255,255,0.20); border-radius: var(--radius); transition: border-color 0.2s, background 0.2s; }
+    .social-link:hover { border-color: rgba(255,255,255,0.70); background: rgba(255,255,255,0.07); }
+    .social-link svg { width: 18px; height: 18px; fill: rgba(255,255,255,0.80); }
+    .site-footer__copy { color: var(--muted); font-size: 0.82rem; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .timeline-item { flex-direction: column; gap: 0.5rem; }
+      .timeline-item__meta { flex: none; }
+    }
+    @media (max-width: 768px) {
+      .hero__inner { flex-direction: column-reverse; align-items: center; }
+      .hero__photo { width: min(320px, 88vw); }
+      .hero__content { padding-top: 0; align-items: center; text-align: center; }
+      .hero__bio { max-width: 100%; }
+      .hero__badges { justify-content: center; }
+      .hero__stats { flex-direction: row; justify-content: space-around; width: 100%; padding-top: 0; }
+      .stat { text-align: center; }
+      .services__inner { flex-direction: column; }
+      .testimonial__inner { flex-direction: column; }
+      .testimonial__photo { width: min(280px, 80vw); height: auto; aspect-ratio: 3/4; }
+      .cta__inner { flex-direction: column; }
+      .cta__figure { width: min(320px, 88vw); }
+      .site-footer__inner { flex-direction: column; align-items: flex-start; }
+      .nav-toggle { display: flex; }
+      .navbar__links { display: none; position: fixed; inset: 0; background: rgba(3,14,33,0.97); flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem; z-index: 200; }
+      .navbar__links.is-open { display: flex; }
+      .navbar__links a { font-size: 1.4rem; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Hero Section -->
-  <header class="hero">
-    <h1 class="fade-in">Devansh Mishra</h1>
-    <p class="fade-in delay-1">WordPress & Full-Stack Web Developer</p>
+  <!-- NAVBAR -->
+  <header class="navbar" role="banner">
+    <div class="container navbar__inner">
+      <a href="/" class="navbar__logo" aria-label="Devansh Mishra – Home">
+        DEVANSH<span class="navbar__logo-dot" aria-hidden="true"></span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <ul class="navbar__links" id="navLinks" role="list">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-controls="navLinks" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </header>
 
-  <!-- About -->
-  <section class="section about slide-in-left">
-    <h2>About Me</h2>
-    <p>
-      I’m a passionate web developer specializing in custom WordPress solutions, performance optimization, and scalable web development. I love building elegant, user-friendly websites using PHP, JavaScript, and modern CMS tools like Elementor and WooCommerce. I also lead development teams, train interns, and collaborate directly with clients to deliver high-quality, on-time web projects.
-    </p>
-  </section>
+  <main>
 
-  <!-- Experience -->
-  <section class="section experience slide-in-right">
-    <h2>Work Experience</h2>
-    
-    <h3>ANCKR LLC — United States of America (November 2025 - Present)</h3>
-      <p><em>WP Developer, Technical Support Engineer & Maintenance Specialist (Remote)</em></p>
-      <ul>
-        <li>Provided technical support, maintenance, and troubleshooting for WordPress websites</li>
-        <li>Managed regular updates, backups, and security monitoring to ensure website uptime and optimal performance</li>
-        <li>Diagnosed and resolved plugin, theme, and hosting-related issues efficiently</li>
-        <li>Optimized website speed, database performance, and SEO compatibility</li>
-        <li>Customized WordPress themes and plugins using PHP, HTML, CSS, and JavaScript</li>
-        <li>Built responsive and dynamic web solutions using Spectra, Gutenberg, Elementor, and WooCommerce</li>
-        <li><strong>Collaborated directly with clients and developers</strong> to ensure smooth communication and timely issue resolution</li>
-        <li><strong>Utilized project management tools</strong> such as ClickUp, Slack, Jira, and Asana for workflow management</li>
-      </ul>
+    <!-- HERO -->
+    <section class="hero" id="about" aria-labelledby="hero-name">
+      <div class="blob blob--hero-blue"   aria-hidden="true"></div>
+      <div class="blob blob--hero-purple" aria-hidden="true"></div>
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <p class="hero__role">WordPress Developer &amp; Technical Support</p>
+          <h1 class="hero__name" id="hero-name">Devansh Mishra</h1>
+          <div class="hero__underline" aria-hidden="true"></div>
+          <p class="hero__bio">
+            WordPress Developer &amp; Technical Support Specialist with 3+ years of hands-on
+            experience supporting international clients. Skilled in custom theme &amp; plugin
+            development, WooCommerce, performance optimization, and full-stack WordPress
+            solutions using PHP, MySQL, HTML, CSS &amp; JavaScript.
+          </p>
+          <div class="hero__badges" aria-label="Key technologies">
+            <span class="badge">WordPress</span>
+            <span class="badge">PHP</span>
+            <span class="badge">WooCommerce</span>
+            <span class="badge">Elementor</span>
+            <span class="badge">MySQL</span>
+            <span class="badge">JavaScript</span>
+            <span class="badge">REST API</span>
+            <span class="badge">WP Engine</span>
+          </div>
+          <a href="#contact" class="arrow-link" style="margin-top:0.5rem">Let's talk <span aria-hidden="true">→</span></a>
+        </div>
 
-    <h3>Twinspark Technology Private Ltd — Lucknow (June 2022 - October 2025)</h3>
-<p><em>WordPress Web Developer (Onsite)</em></p>
-<ul>
-  <li>Developed and customized WordPress themes and plugins to enhance website functionality</li>
-  <li>Streamlined WooCommerce checkout process by reducing required fields from 12 to 7, resulting in a 20% improvement in user completion rates and a more intuitive user experience</li>
-  <li>Created custom Elementor widgets and Gutenberg blocks to improve content management flexibility</li>
-  <li>Optimized website speed, security, and SEO to enhance overall performance and user experience</li>
-  <li>Integrated third-party APIs and implemented custom functionalities to extend WordPress capabilities</li>
-  <li>Provided technical support and troubleshooting for WordPress-related issues</li>
-</ul>
+        <figure class="hero__photo">
+          <img src="devansh-professional.jpg" alt="Devansh Mishra – WordPress Developer based in Lucknow, India" width="420" height="560" />
+        </figure>
 
+        <aside class="hero__stats" aria-label="Career highlights">
+          <div class="stat">
+            <p class="stat__label">Years of<br/>Experience</p>
+            <strong class="stat__value">3+</strong>
+          </div>
+          <div class="stat">
+            <p class="stat__label">WordPress<br/>Projects</p>
+            <strong class="stat__value">50+</strong>
+          </div>
+          <div class="stat">
+            <p class="stat__label">Happy<br/>Clients</p>
+            <strong class="stat__value">20+</strong>
+          </div>
+        </aside>
+      </div>
+    </section>
 
-    <h3>Trainede Consulting Pvt Ltd (Jan 2017 – May 2017)</h3>
-    <p><em>Python Developer Intern</em></p>
-    <ul>
-      <li>Created an online Python code editor with real-time execution and debugging</li>
-      <li>Used Django for backend logic and secure execution of user-submitted code</li>
-      <li>Implemented syntax highlighting using JavaScript and handled multi-user access</li>
-    </ul>
-  </section>
+    <!-- BRAND STRIP -->
+    <div class="brand-strip" aria-label="Tools and platforms I work with">
+      <div class="container brand-strip__inner">
+        <span class="brand-item">WordPress</span>
+        <span class="brand-item">WooCommerce</span>
+        <span class="brand-item">Elementor</span>
+        <span class="brand-item">WP Engine</span>
+        <span class="brand-item">Flywheel</span>
+        <span class="brand-item">Cloudflare</span>
+        <span class="brand-item">cPanel</span>
+        <span class="brand-item">GitHub</span>
+      </div>
+    </div>
 
-  <!-- Education -->
-  <section class="section education slide-in-left">
-    <h2>Education</h2>
+    <!-- SERVICES -->
+    <section class="services" id="services" aria-labelledby="services-title">
+      <div class="blob blob--services" aria-hidden="true"></div>
+      <div class="container services__inner">
+        <div class="services__intro">
+          <h2 class="section-title" id="services-title">My Core<br/>Services</h2>
+          <p class="services__desc">
+            From custom WordPress development to performance tuning and ongoing technical
+            support — I deliver stable, fast, and secure web solutions for international clients.
+          </p>
+          <a href="#contact" class="arrow-link">Hire Me <span aria-hidden="true">→</span></a>
+        </div>
+        <ul class="services__list" role="list">
+          <li class="service-card">
+            <div class="service-card__icon" aria-hidden="true">⚙️</div>
+            <div class="service-card__info">
+              <h3 class="service-card__title">WordPress Development</h3>
+              <p class="service-card__desc">Custom themes, plugins, Gutenberg blocks &amp; Elementor widgets</p>
+            </div>
+          </li>
+          <li class="service-card">
+            <div class="service-card__icon" aria-hidden="true">🛒</div>
+            <div class="service-card__info">
+              <h3 class="service-card__title">WooCommerce Solutions</h3>
+              <p class="service-card__desc">Custom checkout flows, payment gateways &amp; store optimization</p>
+            </div>
+          </li>
+          <li class="service-card">
+            <div class="service-card__icon" aria-hidden="true">⚡</div>
+            <div class="service-card__info">
+              <h3 class="service-card__title">Performance Optimization</h3>
+              <p class="service-card__desc">Speed improvements, caching, CDN integration &amp; SEO best practices</p>
+            </div>
+          </li>
+          <li class="service-card">
+            <div class="service-card__icon" aria-hidden="true">🛡️</div>
+            <div class="service-card__info">
+              <h3 class="service-card__title">Technical Support &amp; Maintenance</h3>
+              <p class="service-card__desc">Troubleshooting, security monitoring, backups &amp; uptime management</p>
+            </div>
+          </li>
+          <li class="service-card">
+            <div class="service-card__icon" aria-hidden="true">🚀</div>
+            <div class="service-card__info">
+              <h3 class="service-card__title">Hosting &amp; Migration</h3>
+              <p class="service-card__desc">WP Engine, Flywheel, cPanel, DNS/SSL setup &amp; staging environments</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
 
-    <h3>Baba Saheb Bhimrao Ambedkar University, Lucknow</h3>
-    <p><strong>M.Sc. in Information Technology (2020 – 2022)</strong></p>
-    <p><em>Final Year Project: Online Shopping Portal</em></p>
-    <ul>
-      <li>Built using PHP, WooCommerce, and MySQL</li>
-      <li>Integrated shopping cart, secure checkout, and admin dashboard</li>
-      <li>Focused on UI/UX, performance optimization, and website security</li>
-    </ul>
+    <!-- SKILLS -->
+    <section class="skills" id="skills" aria-labelledby="skills-title">
+      <div class="container skills__inner">
+        <header class="skills__header">
+          <h2 class="section-title" id="skills-title">Skills &amp; Expertise</h2>
+          <p class="skills__subtitle">A full-stack WordPress toolkit built over 3+ years of real-world client work.</p>
+        </header>
+        <div class="skills__grid">
+          <div class="skill-group">
+            <p class="skill-group__title">WordPress Core</p>
+            <ul class="skill-tags" role="list">
+              <li class="skill-tag">Custom Themes</li><li class="skill-tag">Plugins</li>
+              <li class="skill-tag">Multisite</li><li class="skill-tag">WP-CLI</li>
+              <li class="skill-tag">Gutenberg</li><li class="skill-tag">ACF</li>
+              <li class="skill-tag">Spectra</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <p class="skill-group__title">Page Builders</p>
+            <ul class="skill-tags" role="list">
+              <li class="skill-tag">Elementor</li><li class="skill-tag">Gutenberg</li>
+              <li class="skill-tag">ACF</li><li class="skill-tag">Spectra</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <p class="skill-group__title">Front-End</p>
+            <ul class="skill-tags" role="list">
+              <li class="skill-tag">HTML5</li><li class="skill-tag">CSS3</li>
+              <li class="skill-tag">JavaScript</li><li class="skill-tag">jQuery</li>
+              <li class="skill-tag">Responsive Design</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <p class="skill-group__title">Back-End</p>
+            <ul class="skill-tags" role="list">
+              <li class="skill-tag">PHP</li><li class="skill-tag">MySQL</li>
+              <li class="skill-tag">REST API</li><li class="skill-tag">WooCommerce</li>
+              <li class="skill-tag">Python</li><li class="skill-tag">Django</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <p class="skill-group__title">Performance &amp; SEO</p>
+            <ul class="skill-tags" role="list">
+              <li class="skill-tag">Caching</li><li class="skill-tag">CDN</li>
+              <li class="skill-tag">GTmetrix</li><li class="skill-tag">PageSpeed</li>
+              <li class="skill-tag">Schema</li><li class="skill-tag">SEO</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <p class="skill-group__title">Hosting &amp; DevOps</p>
+            <ul class="skill-tags" role="list">
+              <li class="skill-tag">WP Engine</li><li class="skill-tag">Flywheel</li>
+              <li class="skill-tag">cPanel</li><li class="skill-tag">SFTP</li>
+              <li class="skill-tag">DNS &amp; SSL</li><li class="skill-tag">Cloudflare</li>
+              <li class="skill-tag">Git / GitHub</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <p class="skill-group__title">Tools &amp; Workflow</p>
+            <ul class="skill-tags" role="list">
+              <li class="skill-tag">Jira</li><li class="skill-tag">Asana</li>
+              <li class="skill-tag">Slack</li><li class="skill-tag">ClickUp</li>
+              <li class="skill-tag">Freshdesk</li><li class="skill-tag">Zendesk</li>
+              <li class="skill-tag">WP Remote</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <p class="skill-group__title">Integrations</p>
+            <ul class="skill-tags" role="list">
+              <li class="skill-tag">Gravity Forms</li><li class="skill-tag">Payment Gateways</li>
+              <li class="skill-tag">Zapier</li><li class="skill-tag">Trustindex</li>
+              <li class="skill-tag">Lawmatrics</li><li class="skill-tag">APIs</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <h3>Babu Banarasi Das University, Lucknow</h3>
-    <p><strong>Bachelor of Computer Applications (2014 – 2017)</strong></p>
-    <ul>
-      <li>Studied programming, software engineering, and database management</li>
-      <li>Completed internship working on real-time Python application development</li>
-    </ul>
-  </section>
+    <!-- EXPERIENCE -->
+    <section class="experience" id="experience" aria-labelledby="experience-title">
+      <div class="blob blob--exp" aria-hidden="true"></div>
+      <div class="container experience__inner">
+        <h2 class="section-title" id="experience-title">Work Experience</h2>
+        <ol class="timeline" role="list">
 
-  <!-- Skills -->
-  <section class="section skills slide-in-right">
-    <h2>Technical Skills</h2>
-    <ul>
-      <li>✔ WordPress Theme & Plugin Development</li>
-      <li>✔ Elementor, Gutenberg, ACF</li>
-      <li>✔ PHP, MySQL, REST APIs</li>
-      <li>✔ HTML5, CSS3, JavaScript, jQuery</li>
-      <li>✔ WooCommerce Customization</li>
-      <li>✔ Git, GitHub, Debugging Tools</li>
-      <li>✔ Gravity Forms, API Integrations</li>
-      <li>✔ Performance Optimization & SEO</li>
-      <li>✔ Client Handling & Project Management</li>
-      <li>✔ Team Leadership & Intern Training</li>
-    </ul>
-  </section>
+          <li class="timeline-item">
+            <div class="timeline-item__meta">
+              <span class="timeline-item__period">Nov 2025 – Feb 2026</span>
+              <span class="timeline-item__company">ANCKR LLC</span>
+              <span class="timeline-item__location">United States (Remote)</span>
+            </div>
+            <div class="timeline-item__body">
+              <h3 class="timeline-item__role">WordPress Developer &amp; Technical Support</h3>
+              <ul class="timeline-item__points" role="list">
+                <li>Provided technical support, maintenance &amp; troubleshooting for WordPress websites for international clients</li>
+                <li>Converted Figma mockups into fully functional WordPress websites</li>
+                <li>Managed hosting on Flywheel &amp; WP Engine with DNS, CDN &amp; SSL configuration via Cloudflare</li>
+                <li>Handled regular updates, backups &amp; security monitoring for uptime and performance</li>
+                <li>Diagnosed and resolved plugin, theme &amp; hosting-related issues efficiently</li>
+                <li>Optimized website speed, database performance &amp; SEO compatibility</li>
+                <li>Customized themes &amp; plugins using PHP, HTML, CSS &amp; JavaScript</li>
+                <li>Collaborated via ClickUp, Slack, Jira &amp; Asana for smooth client communication</li>
+              </ul>
+            </div>
+          </li>
 
-  <!-- Languages -->
-  <section class="section languages slide-in-left">
-    <h2>Languages</h2>
-    <ul>
-      <li>✔ English – Fluent</li>
-      <li>✔ Hindi – Native</li>
-    </ul>
-  </section>
+          <li class="timeline-item">
+            <div class="timeline-item__meta">
+              <span class="timeline-item__period">Jun 2022 – Oct 2025</span>
+              <span class="timeline-item__company">Twinspark Technology Pvt Ltd</span>
+              <span class="timeline-item__location">Lucknow, India</span>
+            </div>
+            <div class="timeline-item__body">
+              <h3 class="timeline-item__role">WordPress Developer</h3>
+              <ul class="timeline-item__points" role="list">
+                <li>Developed and customized WordPress themes &amp; plugins to enhance website functionality</li>
+                <li>Built WooCommerce projects with custom checkout flows &amp; payment gateway integrations</li>
+                <li>Created custom Elementor widgets &amp; Gutenberg blocks for flexible content management</li>
+                <li>Optimized website speed, security &amp; SEO for improved performance and UX</li>
+                <li>Integrated third-party APIs &amp; enhanced WordPress with custom functionalities</li>
+                <li>Provided technical support &amp; troubleshooting for WordPress-related issues</li>
+              </ul>
+            </div>
+          </li>
 
-  <!-- Contact -->
-  <section class="section contact slide-in-right">
-    <h2>Contact</h2>
-    <p><strong>Email:</strong> <a href="mailto:devanshmishra872@gmail.com">devanshmishra872@gmail.com</a></p>
-    <p><strong>Phone:</strong> +91 87659 45870</p>
-    <p><strong>Location:</strong> Keshavnagar, Lucknow, Uttar Pradesh, India</p>
-  </section>
+          <li class="timeline-item">
+            <div class="timeline-item__meta">
+              <span class="timeline-item__period">Jan 2017 – May 2017</span>
+              <span class="timeline-item__company">Trainedge Consulting Pvt Ltd</span>
+              <span class="timeline-item__location">Lucknow, India</span>
+            </div>
+            <div class="timeline-item__body">
+              <h3 class="timeline-item__role">Python Developer Intern</h3>
+              <ul class="timeline-item__points" role="list">
+                <li>Built an online code editor for writing, executing &amp; debugging Python code in real-time</li>
+                <li>Developed backend using Python &amp; Django with secure code execution</li>
+                <li>Implemented syntax highlighting using JavaScript for better coding experience</li>
+                <li>Optimized the platform for multi-user access &amp; concurrent execution</li>
+              </ul>
+            </div>
+          </li>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Devansh Mishra. All rights reserved.</p>
+        </ol>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="education" id="education" aria-labelledby="education-title">
+      <div class="container education__inner">
+        <h2 class="section-title" id="education-title">Education</h2>
+        <div class="edu-grid">
+          <article class="edu-card">
+            <p class="edu-card__year">2022</p>
+            <h3 class="edu-card__degree">Bachelor's Degree</h3>
+            <p class="edu-card__school">Baba Saheb Bhimrao Ambedkar University<br/>Lucknow, U.P., India</p>
+            <p class="edu-card__project">Final Year Project: Online Shopping Portal built with PHP, WooCommerce &amp; MySQL</p>
+          </article>
+          <article class="edu-card">
+            <p class="edu-card__year">2017</p>
+            <h3 class="edu-card__degree">Internship – Python Development</h3>
+            <p class="edu-card__school">Babu Banarasi Das University<br/>Lucknow, U.P., India</p>
+            <p class="edu-card__project">6-month Python internship: Built a web-based Online Code Editor with Django &amp; JavaScript</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIAL -->
+    <section class="testimonial" aria-labelledby="testimonial-heading">
+      <div class="blob blob--testimonial" aria-hidden="true"></div>
+      <div class="container testimonial__inner">
+        <figure class="testimonial__photo">
+          <img src="devansh-professional.jpg" alt="Devansh Mishra, WordPress Developer" width="360" height="480" loading="lazy" />
+        </figure>
+        <div class="testimonial__body">
+          <p class="testimonial__quote-mark" aria-hidden="true">❝</p>
+          <blockquote class="testimonial__quote">
+            <p id="testimonial-heading">
+              Devansh is a highly skilled WordPress developer who delivered results beyond
+              our expectations. His technical support, quick turnaround, and attention to
+              detail made our website faster, secure and rock solid. Truly a pleasure to work with.
+            </p>
+            <footer>
+              <cite>
+                <span class="testimonial__author-name">John</span>
+                <span class="testimonial__author-role">CEO, ANCKR LLC — United States</span>
+              </cite>
+            </footer>
+          </blockquote>
+          <nav class="testimonial__nav" aria-label="Testimonial navigation">
+            <button class="testimonial__btn testimonial__btn--prev" aria-label="Previous testimonial">←</button>
+            <button class="testimonial__btn testimonial__btn--next" aria-label="Next testimonial">→</button>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="contact" aria-labelledby="cta-heading">
+      <div class="container cta__inner">
+        <div class="cta__text">
+          <h2 class="cta__heading" id="cta-heading">
+            Need a fast, secure &amp; impactful WordPress website?
+          </h2>
+          <div class="cta__actions">
+            <a href="mailto:devanshmishra872@gmail.com" class="btn-primary">Email Me →</a>
+            <a href="https://www.linkedin.com/in/devansh-mishra-319018b5" target="_blank" rel="noopener noreferrer" class="btn-outline">LinkedIn</a>
+            <a href="https://github.com/devanshmishra" target="_blank" rel="noopener noreferrer" class="btn-outline">GitHub</a>
+          </div>
+        </div>
+        <figure class="cta__figure">
+          <img src="devansh-professional.jpg" alt="Devansh Mishra available for WordPress projects" width="440" height="520" loading="lazy" />
+        </figure>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container site-footer__inner">
+      <a href="/" class="site-footer__brand" aria-label="Devansh Mishra – Home">
+        DEVANSH<span class="navbar__logo-dot" aria-hidden="true"></span>
+      </a>
+      <nav aria-label="Social media links">
+        <ul class="social-links" role="list">
+          <li>
+            <a href="https://www.linkedin.com/in/devansh-mishra-319018b5" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452H17.21v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.988V9h3.12v1.561h.046c.434-.823 1.492-1.691 3.07-1.691 3.283 0 3.888 2.16 3.888 4.969v6.613zM5.337 7.433a1.815 1.815 0 1 1 0-3.63 1.815 1.815 0 0 1 0 3.63zM6.96 20.452H3.71V9h3.25v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/devanshmishra" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://profiles.wordpress.org/devanshmishra2307/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="WordPress.org">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zM1.892 12c0-1.554.334-3.031.93-4.365L6.67 18.477A10.12 10.12 0 0 1 1.892 12zm10.108 10.108a10.12 10.12 0 0 1-2.868-.415l3.046-8.847 3.122 8.554a.95.95 0 0 0 .072.139 10.12 10.12 0 0 1-3.372.569zm1.39-14.73c.607-.032 1.153-.096 1.153-.096.543-.064.48-.861-.064-.829 0 0-1.63.128-2.684.128-1.001 0-2.651-.128-2.651-.128-.543-.032-.607.797-.064.829 0 0 .512.064 1.055.096l1.567 4.293-2.201 6.602-3.663-10.895c.607-.032 1.153-.096 1.153-.096.543-.064.479-.861-.064-.829 0 0-1.63.128-2.684.128-.189 0-.41-.005-.643-.011A10.12 10.12 0 0 1 12 1.892c2.66 0 5.089 1.018 6.904 2.682-.044-.003-.086-.008-.131-.008-1.001 0-1.712.872-1.712 1.808 0 .84.48 1.551.993 2.39.384.671.831 1.532.831 2.776 0 .861-.331 1.859-.764 3.251l-1.001 3.342-3.63-10.795zm3.841 13.295l3.102-8.963c.578-1.451.77-2.61.77-3.643 0-.374-.025-.72-.07-1.043A10.12 10.12 0 0 1 22.108 12a10.12 10.12 0 0 1-4.877 8.673z"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://devanshmishra.github.io/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Portfolio">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <p class="site-footer__copy">&copy; <span id="year"></span> Devansh Mishra. All rights reserved.</p>
+    </div>
   </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const navToggle = document.getElementById('navToggle');
+    const navLinks  = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', open);
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
 
 </body>
 </html>
