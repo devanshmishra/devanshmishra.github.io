@@ -8,7 +8,7 @@
 
   <!-- SEO Meta -->
   <meta name="description"
-    content="Devansh Mishra – WordPress Fullstack Developer & Technical Support Maintenance Specialist with 3+ years of experience helping international clients with custom themes, WooCommerce, performance optimization, and site maintenance." />
+    content="Devansh Mishra – WordPress Fullstack Developer & Technical Support Maintenance Specialist with 4+ years of experience helping international clients with custom themes, WooCommerce, performance optimization, and site maintenance." />
   <meta name="keywords"
     content="WordPress Developer, Technical Support, WooCommerce, Elementor, PHP, MySQL, Lucknow, India, Freelancer" />
   <meta name="author" content="Devansh Mishra" />
@@ -19,7 +19,7 @@
   <meta property="og:title" content="Devansh Mishra – WordPress Fullstack Developer" />
   <meta property="og:description"
     content="Devansh Mishra – WordPress Fullstack Developer & Technical Support Maintenance Specialist with 3+ years of experience supporting international clients." />
-  <meta property="og:image" content="devansh-professional.jpg" />
+  <meta property="og:image" content="images/devansh-professional.jpg" />
   <meta property="og:url" content="https://devanshmishra.github.io/" />
   <meta property="og:type" content="website" />
 
@@ -28,1100 +28,42 @@
   <meta name="twitter:title" content="Devansh Mishra – WordPress Fullstack Developer" />
   <meta name="twitter:description"
     content="Devansh Mishra – WordPress Fullstack Developer & Technical Support Maintenance Specialist" />
-  <meta name="twitter:image" content="devansh-professional.jpg" />
+  <meta name="twitter:image" content="images/devansh-professional.jpg" />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
-  <link rel="icon" type="image/png" sizes="64x64" href="favicon-64.png" />
-  <link rel="icon" type="image/png" sizes="128x128" href="favicon-128.png" />
-  <link rel="apple-touch-icon" sizes="256x256" href="favicon-256.png" />
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="64x64" href="images/favicon-64.png" />
+  <link rel="icon" type="image/png" sizes="128x128" href="images/favicon-128.png" />
+  <link rel="apple-touch-icon" sizes="256x256" href="images/favicon-256.png" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <style>
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    :root {
-      --bg: #030E21;
-      --bg-footer: #091427;
-      --bg-card: rgba(9, 20, 39, 0.80);
-      --bg-panel: rgba(9, 20, 39, 0.60);
-      --text: #ffffff;
-      --muted: #868490;
-      --accent: #F8E7A1;
-      --border: rgba(255, 255, 255, 0.12);
-      --radius: 6px;
-      --font: 'Poppins', sans-serif;
-      --max-w: 1200px;
-      --px: clamp(1.25rem, 5vw, 2rem);
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--font);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    ul,
-    ol {
-      list-style: none;
-    }
-
-    .blob {
-      position: absolute;
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 0;
-      filter: blur(70px);
-      opacity: 0.55;
-    }
-
-    .container {
-      max-width: var(--max-w);
-      margin-inline: auto;
-      padding-inline: var(--px);
-      position: relative;
-      z-index: 1;
-    }
-
-    .arrow-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--accent);
-      font-size: 1rem;
-      font-weight: 400;
-      transition: gap 0.2s;
-    }
-
-    .arrow-link:hover {
-      gap: 0.9rem;
-    }
-
-    .section-title {
-      font-size: clamp(2rem, 4.5vw, 3.875rem);
-      font-weight: 600;
-      line-height: 1.15;
-    }
-
-    /* ── NAVBAR ── */
-    .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      padding-block: 1.1rem;
-      background: rgba(3, 14, 33, 0.90);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .navbar__inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.5rem;
-    }
-
-    .navbar__logo {
-      font-size: 1.75rem;
-      font-weight: 700;
-      color: #E5E5E5;
-      letter-spacing: 0.06em;
-      display: flex;
-      align-items: center;
-    }
-
-    .navbar__logo-dot {
-      width: 8px;
-      height: 8px;
-      background: var(--accent);
-      border-radius: 50%;
-      display: inline-block;
-      margin-left: 3px;
-    }
-
-    .navbar__links {
-      display: flex;
-      gap: 2.5rem;
-    }
-
-    .navbar__links a {
-      font-size: 1rem;
-      font-weight: 500;
-      color: rgba(255, 255, 255, 0.70);
-      transition: color 0.2s;
-    }
-
-    .navbar__links a:hover {
-      color: #fff;
-    }
-
-    .nav-toggle {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 4px;
-    }
-
-    .nav-toggle span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: #fff;
-      border-radius: 2px;
-      transition: transform 0.3s, opacity 0.3s;
-    }
-
-    /* ── Mobile Nav Fix ─────────────────────────────────────── */
-    @media (max-width: 768px) {
-      .navbar__links {
-        display: none;
-        position: fixed;
-        inset: 0;
-        /* covers full screen */
-        background: #030E21;
-        /* solid — no transparency */
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 2.5rem;
-        z-index: 999;
-        /* above everything */
-      }
-
-      .navbar__links.is-open {
-        display: flex;
-      }
-
-      .navbar__links a {
-        font-size: 1.6rem;
-        font-weight: 600;
-        color: rgba(255, 255, 255, 0.80);
-        padding: 0.5rem 1rem;
-        transition: color 0.2s;
-      }
-
-      .navbar__links a:hover {
-        color: #F8E7A1;
-      }
-
-      /* Close button inside menu */
-      .navbar__links::after {
-        content: '✕';
-        position: absolute;
-        top: 1.25rem;
-        right: 1.5rem;
-        font-size: 1.4rem;
-        color: rgba(255, 255, 255, 0.60);
-        cursor: pointer;
-        pointer-events: none;
-        /* JS handles close via toggle btn */
-      }
-
-      /* Hamburger becomes X when open */
-      .nav-toggle[aria-expanded="true"] span:nth-child(1) {
-        transform: translateY(7px) rotate(45deg);
-      }
-
-      .nav-toggle[aria-expanded="true"] span:nth-child(2) {
-        opacity: 0;
-        transform: scaleX(0);
-      }
-
-      .nav-toggle[aria-expanded="true"] span:nth-child(3) {
-        transform: translateY(-7px) rotate(-45deg);
-      }
-
-      /* Keep toggle button on top of the open menu */
-      .nav-toggle {
-        position: relative;
-        z-index: 1000;
-      }
-    }
-
-    /* ── HERO ── */
-    .hero {
-      position: relative;
-      overflow: hidden;
-      padding-block: clamp(3rem, 8vw, 5rem);
-    }
-
-    .blob--hero-blue {
-      width: 600px;
-      height: 600px;
-      background: #2F45BC;
-      top: -100px;
-      right: -150px;
-    }
-
-    .blob--hero-purple {
-      width: 500px;
-      height: 500px;
-      background: #4F349F;
-      top: 200px;
-      left: -180px;
-    }
-
-    .hero__inner {
-      display: flex;
-      align-items: flex-start;
-      gap: clamp(1.5rem, 4vw, 3rem);
-    }
-
-    .hero__content {
-      flex: 1 1 340px;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      padding-top: 2rem;
-    }
-
-    .hero__role {
-      font-size: clamp(1rem, 2.2vw, 1.5rem);
-      font-weight: 600;
-      color: var(--muted);
-    }
-
-    .hero__name {
-      font-size: clamp(2.4rem, 6vw, 5rem);
-      font-weight: 600;
-      line-height: 1.05;
-    }
-
-    .hero__underline {
-      width: clamp(100px, 15vw, 183px);
-      height: 8px;
-      background: var(--accent);
-      border-radius: 2px;
-    }
-
-    .hero__bio {
-      font-size: clamp(0.88rem, 1.3vw, 1rem);
-      color: var(--muted);
-      line-height: 1.9;
-      max-width: 420px;
-    }
-
-    .hero__badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      margin-top: 0.4rem;
-    }
-
-    .badge {
-      background: rgba(248, 231, 161, 0.09);
-      border: 1px solid rgba(248, 231, 161, 0.22);
-      color: var(--accent);
-      font-size: 0.72rem;
-      font-weight: 500;
-      padding: 0.22rem 0.7rem;
-      border-radius: 999px;
-    }
-
-    .hero__photo {
-      flex: 0 0 auto;
-      width: clamp(200px, 30vw, 420px);
-      border-radius: var(--radius);
-      overflow: hidden;
-      margin: 0;
-    }
-
-    .hero__photo img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-      object-position: top center;
-      border-radius: var(--radius);
-      display: block;
-    }
-
-    .hero__stats {
-      flex: 0 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 2.5rem;
-      padding-top: 1rem;
-    }
-
-    .stat {
-      text-align: right;
-    }
-
-    .stat__label {
-      color: var(--muted);
-      font-size: clamp(0.8rem, 1.1vw, 1.05rem);
-      font-weight: 500;
-      line-height: 1.4;
-    }
-
-    .stat__value {
-      font-size: clamp(2.2rem, 4.5vw, 4rem);
-      font-weight: 600;
-      line-height: 1;
-    }
-
-    /* ── BRAND STRIP ── */
-    .brand-strip {
-      background: rgba(9, 20, 39, 0.60);
-      backdrop-filter: blur(4px);
-      padding-block: 1.35rem;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .brand-strip__inner {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: clamp(1.5rem, 4vw, 4rem);
-      flex-wrap: wrap;
-    }
-
-    .brand-item {
-      color: rgba(255, 255, 255, 0.38);
-      font-size: clamp(0.72rem, 1.1vw, 0.85rem);
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-
-    .brand-item:hover {
-      color: rgba(255, 255, 255, 0.72);
-    }
-
-    /* ── SERVICES ── */
-    .services {
-      position: relative;
-      overflow: hidden;
-      padding-block: clamp(3rem, 7vw, 5.5rem);
-    }
-
-    .blob--services {
-      width: 700px;
-      height: 700px;
-      background: #8B3D4C;
-      top: 80px;
-      right: -250px;
-      opacity: 0.35;
-    }
-
-    .services__inner {
-      display: flex;
-      gap: clamp(2rem, 6vw, 5rem);
-      align-items: flex-start;
-      flex-wrap: wrap;
-    }
-
-    .services__intro {
-      flex: 1 1 280px;
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      padding-top: 1rem;
-    }
-
-    .services__desc {
-      color: var(--muted);
-      font-size: clamp(0.88rem, 1.2vw, 1rem);
-      line-height: 1.9;
-      max-width: 380px;
-    }
-
-    .services__list {
-      flex: 1 1 400px;
-      display: flex;
-      flex-direction: column;
-      gap: 0.9rem;
-    }
-
-    .service-card {
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      backdrop-filter: blur(4.5px);
-      padding: 1.1rem 1.4rem;
-      transition: border-color 0.25s, transform 0.25s;
-    }
-
-    .service-card:hover {
-      border-color: rgba(255, 255, 255, 0.28);
-      transform: translateY(-3px);
-    }
-
-    .service-card__icon {
-      font-size: 1.5rem;
-      flex-shrink: 0;
-      width: 48px;
-      height: 48px;
-      background: rgba(248, 231, 161, 0.07);
-      border-radius: var(--radius);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .service-card__info {
-      flex: 1;
-    }
-
-    .service-card__title {
-      font-size: clamp(0.95rem, 1.6vw, 1.15rem);
-      font-weight: 600;
-      margin-bottom: 0.2rem;
-    }
-
-    .service-card__desc {
-      color: var(--muted);
-      font-size: clamp(0.78rem, 1vw, 0.875rem);
-    }
-
-    /* ── SKILLS ── */
-    .skills {
-      padding-block: clamp(3rem, 7vw, 5.5rem);
-      background: var(--bg-panel);
-    }
-
-    .skills__inner {
-      display: flex;
-      flex-direction: column;
-      gap: 2.5rem;
-    }
-
-    .skills__header {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .skills__subtitle {
-      color: var(--muted);
-      font-size: 1rem;
-      max-width: 500px;
-    }
-
-    .skills__grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 1.1rem;
-    }
-
-    .skill-group {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.1rem 1.4rem;
-    }
-
-    .skill-group__title {
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 0.75rem;
-    }
-
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-    }
-
-    .skill-tag {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.09);
-      color: rgba(255, 255, 255, 0.78);
-      font-size: 0.75rem;
-      font-weight: 500;
-      padding: 0.18rem 0.55rem;
-      border-radius: 4px;
-    }
-
-    /* ── EXPERIENCE ── */
-    .experience {
-      position: relative;
-      overflow: hidden;
-      padding-block: clamp(3rem, 7vw, 5.5rem);
-    }
-
-    .blob--exp {
-      width: 500px;
-      height: 500px;
-      background: #2F45BC;
-      bottom: -100px;
-      left: -150px;
-      opacity: 0.30;
-    }
-
-    .experience__inner {
-      display: flex;
-      flex-direction: column;
-      gap: 2.5rem;
-    }
-
-    .timeline {
-      display: flex;
-      flex-direction: column;
-      position: relative;
-    }
-
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: var(--border);
-    }
-
-    .timeline-item {
-      display: flex;
-      gap: 2rem;
-      padding-left: 2rem;
-      padding-bottom: 2.5rem;
-      position: relative;
-    }
-
-    .timeline-item:last-child {
-      padding-bottom: 0;
-    }
-
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -5px;
-      top: 6px;
-      width: 12px;
-      height: 12px;
-      background: var(--accent);
-      border-radius: 50%;
-      border: 2px solid var(--bg);
-    }
-
-    .timeline-item__meta {
-      flex: 0 0 200px;
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
-    }
-
-    .timeline-item__period {
-      color: var(--accent);
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-    }
-
-    .timeline-item__company {
-      color: var(--muted);
-      font-size: 0.83rem;
-      font-weight: 500;
-    }
-
-    .timeline-item__location {
-      color: var(--muted);
-      font-size: 0.76rem;
-    }
-
-    .timeline-item__body {
-      flex: 1;
-    }
-
-    .timeline-item__role {
-      font-size: clamp(1rem, 1.7vw, 1.15rem);
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-    }
-
-    .timeline-item__points {
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-    }
-
-    .timeline-item__points li {
-      color: var(--muted);
-      font-size: clamp(0.8rem, 1vw, 0.9rem);
-      line-height: 1.7;
-      padding-left: 1rem;
-      position: relative;
-    }
-
-    .timeline-item__points li::before {
-      content: '→';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-size: 0.72rem;
-      top: 3px;
-    }
-
-    /* ── EDUCATION ── */
-    .education {
-      padding-block: clamp(3rem, 7vw, 5.5rem);
-      background: var(--bg-panel);
-    }
-
-    .education__inner {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-
-    .edu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.1rem;
-    }
-
-    .edu-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.4rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-      transition: border-color 0.25s, transform 0.25s;
-    }
-
-    .edu-card:hover {
-      border-color: rgba(255, 255, 255, 0.25);
-      transform: translateY(-3px);
-    }
-
-    .edu-card__year {
-      color: var(--accent);
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-    }
-
-    .edu-card__degree {
-      font-size: 1rem;
-      font-weight: 600;
-    }
-
-    .edu-card__school {
-      color: var(--muted);
-      font-size: 0.86rem;
-      line-height: 1.5;
-    }
-
-    .edu-card__project {
-      color: var(--muted);
-      font-size: 0.8rem;
-      line-height: 1.6;
-      border-top: 1px solid var(--border);
-      padding-top: 0.65rem;
-    }
-
-    /* ── TESTIMONIAL ── */
-    .testimonial {
-      position: relative;
-      overflow: hidden;
-      padding-block: clamp(3rem, 7vw, 5.5rem);
-    }
-
-    .blob--testimonial {
-      width: 426px;
-      height: 719px;
-      background: #2F45BC;
-      left: -61px;
-      top: 0;
-      border-radius: 40% 60% 55% 45% / 50% 45% 55% 50%;
-      opacity: 0.70;
-    }
-
-    .testimonial__inner {
-      display: flex;
-      align-items: center;
-      gap: clamp(2rem, 5vw, 5rem);
-      flex-wrap: wrap;
-    }
-
-    .testimonial__photo {
-      flex: 0 0 auto;
-      width: clamp(220px, 28vw, 360px);
-      height: clamp(280px, 36vw, 480px);
-      border-radius: var(--radius);
-      overflow: hidden;
-      margin: 0;
-      background: #1a2a4a;
-    }
-
-    .testimonial__photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
-      display: block;
-    }
-
-    .testimonial__body {
-      flex: 1 1 320px;
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
-
-    .testimonial__quote-mark {
-      font-size: clamp(3rem, 6vw, 5.5rem);
-      font-weight: 500;
-      line-height: 1;
-    }
-
-    .testimonial__quote {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .testimonial__quote p {
-      font-size: clamp(1rem, 2vw, 1.65rem);
-      font-weight: 600;
-      line-height: 1.45;
-      font-style: normal;
-    }
-
-    .testimonial__author-name {
-      display: block;
-      font-size: 1rem;
-      font-weight: 600;
-      font-style: normal;
-    }
-
-    .testimonial__author-role {
-      display: block;
-      font-size: 0.875rem;
-      color: var(--muted);
-      font-style: normal;
-    }
-
-    .testimonial__nav {
-      display: flex;
-      gap: 0.75rem;
-      margin-top: 0.5rem;
-    }
-
-    .testimonial__btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      font-size: 1rem;
-      cursor: pointer;
-      background: none;
-      transition: background 0.2s, color 0.2s;
-    }
-
-    .testimonial__btn--next {
-      border: 2px solid var(--accent);
-      color: var(--accent);
-    }
-
-    .testimonial__btn--prev {
-      border: 2px solid var(--muted);
-      color: var(--muted);
-    }
-
-    .testimonial__btn--next:hover {
-      background: var(--accent);
-      color: var(--bg);
-    }
-
-    .testimonial__btn--prev:hover {
-      background: var(--muted);
-      color: var(--bg);
-    }
-
-    /* ── CTA ── */
-    .cta {
-      padding-block: clamp(3rem, 7vw, 5.5rem);
-      background: var(--bg-panel);
-    }
-
-    .cta__inner {
-      display: flex;
-      align-items: center;
-      gap: clamp(2rem, 5vw, 4rem);
-      flex-wrap: wrap;
-    }
-
-    .cta__text {
-      flex: 1 1 300px;
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-
-    .cta__heading {
-      font-size: clamp(1.8rem, 4vw, 3.5rem);
-      font-weight: 600;
-      line-height: 1.2;
-    }
-
-    .cta__actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      align-items: center;
-    }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: var(--accent);
-      color: var(--bg);
-      font-size: 1rem;
-      font-weight: 600;
-      padding: 0.75rem 1.75rem;
-      border-radius: var(--radius);
-      transition: opacity 0.2s, transform 0.2s;
-      font-family: var(--font);
-    }
-
-    .btn-primary:hover {
-      opacity: 0.88;
-      transform: translateY(-2px);
-    }
-
-    .btn-outline {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      border: 1.5px solid var(--accent);
-      color: var(--accent);
-      font-size: 1rem;
-      font-weight: 500;
-      padding: 0.75rem 1.75rem;
-      border-radius: var(--radius);
-      transition: background 0.2s, color 0.2s;
-      font-family: var(--font);
-    }
-
-    .btn-outline:hover {
-      background: var(--accent);
-      color: var(--bg);
-    }
-
-    .cta__figure {
-      flex: 0 0 auto;
-      width: clamp(220px, 32vw, 440px);
-      border-radius: var(--radius);
-      overflow: hidden;
-      margin: 0;
-    }
-
-    .cta__figure img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* ── FOOTER ── */
-    .site-footer {
-      background: var(--bg-footer);
-      padding-block: 2.5rem;
-      border-top: 1px solid var(--border);
-    }
-
-    .site-footer__inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-    }
-
-    .site-footer__brand {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #E5E5E5;
-      letter-spacing: 0.06em;
-      display: flex;
-      align-items: center;
-    }
-
-    .social-links {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .social-link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 42px;
-      border: 1.5px solid rgba(255, 255, 255, 0.20);
-      border-radius: var(--radius);
-      transition: border-color 0.2s, background 0.2s;
-    }
-
-    .social-link:hover {
-      border-color: rgba(255, 255, 255, 0.70);
-      background: rgba(255, 255, 255, 0.07);
-    }
-
-    .social-link svg {
-      width: 18px;
-      height: 18px;
-      fill: rgba(255, 255, 255, 0.80);
-    }
-
-    .site-footer__copy {
-      color: var(--muted);
-      font-size: 0.82rem;
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      .timeline-item {
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-
-      .timeline-item__meta {
-        flex: none;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .hero__inner {
-        flex-direction: column-reverse;
-        align-items: center;
-      }
-
-      .hero__photo {
-        width: min(320px, 88vw);
-      }
-
-      .hero__content {
-        padding-top: 0;
-        align-items: center;
-        text-align: center;
-      }
-
-      .hero__bio {
-        max-width: 100%;
-      }
-
-      .hero__badges {
-        justify-content: center;
-      }
-
-      .hero__stats {
-        flex-direction: row;
-        justify-content: space-around;
-        width: 100%;
-        padding-top: 0;
-      }
-
-      .stat {
-        text-align: center;
-      }
-
-      .services__inner {
-        flex-direction: column;
-      }
-
-      .testimonial__inner {
-        flex-direction: column;
-      }
-
-      .testimonial__photo {
-        width: min(280px, 80vw);
-        height: auto;
-        aspect-ratio: 3/4;
-      }
-
-      .cta__inner {
-        flex-direction: column;
-      }
-
-      .cta__figure {
-        width: min(320px, 88vw);
-      }
-
-      .site-footer__inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .nav-toggle {
-        display: flex;
-      }
-
-      .navbar__links {
-        display: none;
-        position: fixed;
-        inset: 0;
-        background: rgba(3, 14, 33, 0.97);
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 2.5rem;
-        z-index: 200;
-      }
-
-      .navbar__links.is-open {
-        display: flex;
-      }
-
-      .navbar__links a {
-        font-size: 1.4rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
+  <!-- BACKGROUND SPARKLES -->
+  <canvas id="sparkles-canvas"></canvas>
 
+  <!-- 3D LOADER -->
+  <div id="loader" class="loader">
+    <div class="cube-wrapper">
+      <div class="cube">
+        <div class="cube__face cube__face--front"></div>
+        <div class="cube__face cube__face--back"></div>
+        <div class="cube__face cube__face--right"></div>
+        <div class="cube__face cube__face--left"></div>
+        <div class="cube__face cube__face--top"></div>
+        <div class="cube__face cube__face--bottom"></div>
+      </div>
+    </div>
+    <div class="loader__text">DEVANSH<span class="loader__dot"></span></div>
+  </div>
   <!-- NAVBAR -->
   <header class="navbar" role="banner">
     <div class="container navbar__inner">
@@ -1155,7 +97,7 @@
           <h1 class="hero__name" id="hero-name">Devansh Mishra</h1>
           <div class="hero__underline" aria-hidden="true"></div>
           <p class="hero__bio">
-            WordPress Fullstack Developer & Technical Support Maintenance Specialist with 3+ years of hands-on
+            WordPress Fullstack Developer & Technical Support Maintenance Specialist with 4+ years of hands-on
             experience supporting international clients. Skilled in custom theme &amp; plugin
             development, WooCommerce, performance optimization, and full-stack WordPress
             solutions using PHP, MySQL, HTML, CSS &amp; JavaScript.
@@ -1176,7 +118,7 @@
         </div>
 
         <figure class="hero__photo">
-          <img src="devansh_mishra_original.png"
+          <img src="images/devansh_mishra_original.png"
             alt="Devansh Mishra – WordPress Fullstack Developer & Technical Support Maintenance Specialist based in Lucknow, India"
             width="420" height="560" />
         </figure>
@@ -1184,7 +126,7 @@
         <aside class="hero__stats" aria-label="Career highlights">
           <div class="stat">
             <p class="stat__label">Years of<br />Experience</p>
-            <strong class="stat__value">3+</strong>
+            <strong class="stat__value">4+</strong>
           </div>
           <div class="stat">
             <p class="stat__label">WordPress<br />Projects</p>
@@ -1201,14 +143,14 @@
     <!-- BRAND STRIP -->
     <div class="brand-strip" aria-label="Tools and platforms I work with">
       <div class="container brand-strip__inner">
-        <span class="brand-item">WordPress</span>
-        <span class="brand-item">WooCommerce</span>
-        <span class="brand-item">Elementor</span>
-        <span class="brand-item">WP Engine</span>
-        <span class="brand-item">Flywheel</span>
-        <span class="brand-item">Cloudflare</span>
-        <span class="brand-item">cPanel</span>
-        <span class="brand-item">GitHub</span>
+        <span class="brand-item"><span class="brand-item-text">WordPress</span></span>
+        <span class="brand-item"><span class="brand-item-text">WooCommerce</span></span>
+        <span class="brand-item"><span class="brand-item-text">Elementor</span></span>
+        <span class="brand-item"><span class="brand-item-text">WP Engine</span></span>
+        <span class="brand-item"><span class="brand-item-text">Flywheel</span></span>
+        <span class="brand-item"><span class="brand-item-text">Cloudflare</span></span>
+        <span class="brand-item"><span class="brand-item-text">cPanel</span></span>
+        <span class="brand-item"><span class="brand-item-text">GitHub</span></span>
       </div>
     </div>
 
@@ -1269,7 +211,7 @@
       <div class="container skills__inner">
         <header class="skills__header anim-fade-up">
           <h2 class="section-title" id="skills-title">Skills &amp; Expertise</h2>
-          <p class="skills__subtitle">A full-stack WordPress toolkit built over 3+ years of real-world client work.</p>
+          <p class="skills__subtitle">A full-stack WordPress toolkit built over 4+ years of real-world client work.</p>
         </header>
         <div class="skills__grid">
           <div class="skill-group">
@@ -1485,7 +427,7 @@
       <div class="blob blob--testimonial" aria-hidden="true"></div>
       <div class="container testimonial__inner">
         <figure class="testimonial__photo">
-          <img src="devansh_mishra_cover.png" alt="Devansh Mishra, WordPress Developer" width="360" height="480"
+          <img src="images/devansh_mishra_cover.png" alt="Devansh Mishra, WordPress Developer" width="360" height="480"
             loading="lazy" />
         </figure>
         <div class="testimonial__body">
@@ -1527,7 +469,7 @@
           </div>
         </div>
         <figure class="cta__figure anim-fade-right">
-          <img src="image26.png" alt="Devansh Mishra available for WordPress projects" width="440" height="520"
+          <img src="images/image26.png" alt="Devansh Mishra available for WordPress projects" width="440" height="520"
             loading="lazy" />
         </figure>
       </div>
@@ -1585,25 +527,7 @@
     </div>
   </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    navToggle.addEventListener('click', () => {
-      const open = navLinks.classList.toggle('is-open');
-      navToggle.setAttribute('aria-expanded', open);
-      // Prevent body scroll when menu is open
-      document.body.style.overflow = open ? 'hidden' : '';
-    });
-
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('is-open');
-        navToggle.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = ''; // restore scroll
-      });
-    });
-
-  </script>
+  <script src="js/script.js"></script>
 
 </body>
 
