@@ -1136,6 +1136,29 @@
         display: flex;
       }
 
+      /* Reduce brand ball size on mobile */
+      .brand-strip {
+        padding-block: 1.5rem;
+      }
+      .brand-strip__inner {
+        min-height: 80px;
+      }
+      .brand-item {
+        width: 40px;
+        height: 40px;
+        font-size: 8px; /* Fixed small size for readability */
+      }
+      .brand-item .brand-item-text {
+        transform: scale(0.65); /* Scaling text to fit tiny balls */
+      }
+      .brand-item::before, .brand-item::after {
+        width: 28px;
+        height: 28px;
+        border-width: 1.5px;
+      }
+      .brand-item::before { top: -18px; left: -18px; }
+      .brand-item::after { bottom: -18px; right: -18px; }
+
     }
   
 /* ── LOADER ── */

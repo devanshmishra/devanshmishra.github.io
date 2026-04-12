@@ -322,6 +322,22 @@
         stripInner.addEventListener('mouseleave', () => {
           stripMouse.active = false;
         });
+
+        // Touch support for mobile
+        stripInner.addEventListener('touchstart', (e) => {
+          stripMouse.active = true;
+        });
+        stripInner.addEventListener('touchmove', (e) => {
+          if (e.touches.length > 0) {
+            const rect = stripInner.getBoundingClientRect();
+            stripMouse.x = e.touches[0].clientX - rect.left;
+            stripMouse.y = e.touches[0].clientY - rect.top;
+            stripMouse.active = true;
+          }
+        }, { passive: true });
+        stripInner.addEventListener('touchend', () => {
+          stripMouse.active = false;
+        });
         
         function updateBrandPhysics() {
           if (!physicsActive) return;
